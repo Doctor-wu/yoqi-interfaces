@@ -20,7 +20,7 @@ const bootstrap = async () => {
     },
     static: {
       path: path.resolve(__dirname, './static'),
-    }
+    },
     logger: {
       path: path.resolve(__dirname, "./log"),
     },
