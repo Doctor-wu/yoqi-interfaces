@@ -12,7 +12,9 @@ const rootConfig = {
 execSync("git pull", rootConfig);
 deleteDir(resolve("../node_modules"));
 execSync("npm install", rootConfig);
-fs.unlinkSync(resolve("../tsconfig.tsbuildinfo"));
+if(fs.existsSync(resolve("../tsconfig.tsbuildinfo"))) {
+  fs.unlinkSync(resolve("../tsconfig.tsbuildinfo"));
+}
 execSync("tsc", rootConfig);
 fs.cpSync(
   resolve("../src/tenon-node-framework/utils/secret.json"),
