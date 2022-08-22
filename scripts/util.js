@@ -15,8 +15,22 @@ const deleteDir = (p) => {
   });
 }
 
-
+const copyDir = (s, d) => {
+  console.log('copying', s);
+  const files = fs.readdirSync(s);
+  files.forEach((file) => {
+    const sourcePath = path.resolve(s, file);
+    const destinationPath = path.resolve(d, file);
+    const stat = fs.statSync(filePath);
+    if(stat.isDirectory()) {
+      copyDir(sourcePath, destinationPath);
+    } else {
+      fs.copyFileSync(sourcePath, destinationPath);
+    }
+  });
+}
 
 module.exports = {
   deleteDir,
+  copyDir,
 }

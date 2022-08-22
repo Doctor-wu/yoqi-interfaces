@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
-const { deleteDir } = require("./util.js");
+const { deleteDir, copyDir } = require("./util.js");
 
 const resolve = (p) => path.resolve(__dirname, p);
 
@@ -23,3 +23,4 @@ fs.cpSync(
   resolve("../src/tenon-node-framework/utils/secret.json"),
   resolve("../dist/tenon-node-framework/utils/secret.json")
 );
+copyDir(resolve('../src/static'), resolve('../dist/static'));
