@@ -18,6 +18,9 @@ const bootstrap = async () => {
       sameSite: true,
       maxAge: 6 * 3600 * 1000,
     },
+    static: {
+      path: path.resolve(__dirname, './static'),
+    }
     logger: {
       path: path.resolve(__dirname, "./log"),
     },
