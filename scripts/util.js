@@ -17,6 +17,9 @@ const deleteDir = (p) => {
 
 const copyDir = (s, d) => {
   console.log('copying', s);
+  if (!fs.existsSync(d)) {
+    fs.mkdirSync(d);
+  }
   const files = fs.readdirSync(s);
   files.forEach((file) => {
     const sourcePath = path.resolve(s, file);
