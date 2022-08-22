@@ -15,6 +15,9 @@ execSync("npm install", rootConfig);
 if(fs.existsSync(resolve("../tsconfig.tsbuildinfo"))) {
   fs.unlinkSync(resolve("../tsconfig.tsbuildinfo"));
 }
+if(fs.existsSync(resolve(__dirname, '../dist'))) {
+  deleteDir(resolve(__dirname, '../dist'));
+}
 execSync("tsc", rootConfig);
 fs.cpSync(
   resolve("../src/tenon-node-framework/utils/secret.json"),
