@@ -21,7 +21,7 @@ const copyDir = (s, d) => {
   files.forEach((file) => {
     const sourcePath = path.resolve(s, file);
     const destinationPath = path.resolve(d, file);
-    const stat = fs.statSync(filePath);
+    const stat = fs.statSync(sourcePath);
     if(stat.isDirectory()) {
       copyDir(sourcePath, destinationPath);
     } else {
